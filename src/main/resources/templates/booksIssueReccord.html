@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Book List</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+<div><h2>Book List</h2></div>
+<hr>
+<a th:href="@{/showFormForanAdd}" class="btn btn-primary btn-sm mb-3">
+Add book
+</a> 
+				 
+<div>
+<table class="table table-bordered table-striped">
+<thead class="thead-dark">
+
+<tr>
+<th>ID</th>
+ 
+ <th>Title</th>
+ <th>Author</th>
+ <th>Category</th>
+ <th>Action</th>
+ 
+ 
+</tr>
+</thead>
+<tbody>
+<th:block th:each="book: ${listBooks}">
+<tr>
+<td>
+[[${book.id}]]
+</td>
+ 
+<td>
+[[${book.title}]]
+</td>
+<td>
+[[${book.author}]]
+</td>
+<td>
+[[${book.category}]]
+</td>
+
+ 
+
+ 
+
+<td>
+
+ <!-- Add and Delete button -->
+ <a th:href="@{ /showFormForanUpdate(bookId=${book.id})}" class="btn btn-info btn-sm"  >Update</a>
+  <a th:href="@{ /showDelete(bookId=${book.id})}" class="btn btn-danger btn-sm"onclick="return confirm('Are you sure you want to Delete entry?')" >Delete</a>
+  <a th:href="@{ /showReturn(bookId=${book.id})}" class="btn btn-info btn-sm"  >Return Book</a>
+ </td>
+</tr>
+</th:block>
+</tbody>
+</table>
+
+</div>
+ 
+</div>
+<a th:href="@{/members}">&nbsp  &nbsp Back To Members List</a> &nbsp  &nbsp  &nbsp <a th:href="@{/address}">Back To Members List</a>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Book Issue List</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+<div><h2>Book Issue List</h2></div>
+<hr>
+ 
+				 
+<div>
+<table class="table table-bordered table-striped">
+<thead class="thead-dark">
+
+<tr>
+<th>Title</th>
+ <th>Issue Date</th>
+ <th>Return Date</th>
+ <th>Fine</th>
+ <th>First Name</th>
+ <th>Last name</th>
+ <th>Email</th>
+
+ 
+ 
+</tr>
+</thead>
+<tbody>
+<th:block th:each="book: ${listBookIssueDetails}">
+<tr>
+<td>
+[[${book.title}]]
+</td>
+ 
+<td>
+[[${book.issueDate}]]
+</td>
+<td>
+[[${book.returnDate}]]
+</td>
+<td>
+[[${book.fine}]]
+</td>
+<td>
+[[${book.firstName}]]
+</td>
+<td>
+[[${book.lastName}]]
+</td>
+ 
+<td>
+ [[${book.email}]]
+
+</td>
+ 
+ 
+ 
+
+ 
+</tr>
+</th:block>
+</tbody>
+</table>
+
+</div>
+ 
+</div>
+<a th:href="@{/members}">&nbsp;  &nbsp; Back To Members List</a> &nbsp;  &nbsp;  &nbsp; <a th:href="@{/address}">Back To Members List</a>
+</body>
+</html>

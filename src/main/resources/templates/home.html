@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Libray Home Page</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container text-center">
+<hr>
+<hr>
+<div><h2>Welcome To Library Manager System</h2></div>
+<hr>
+<div class="p-2">
+<a class="h2" th:href="@{/address}">Address List</a>
+<br><br>
+<a class="h2" th:href="@{/members}">Members List</a>
+
+<br><br>
+<a class="h2" th:href="@{/books}">Book List</a>
+ 
+
+<br><br>
+<a class="h2" th:href="@{/books/new}">Add a book</a>
+<br><br>
+<a class="h2" th:href="@{/issuebooks}">Book List</a>
+<br><br>
+<a class="h2" th:href="@{/bookIssueDetails}">Book List</a>
+</div>
+</div>
+ 
+</body>
+</html>

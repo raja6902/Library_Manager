@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Libray Home Page</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container text-center">
+<hr>
+<div><h2>List of Books</h2></div>
+<hr>
+<a  th:href="@{/books/new}" class="btn btn-primary btn-sm mb-3">Add Book</a>
+ 
+<form action="#" th:action="@{/new/search}" th:object="${books}" method="get">
+				<input id="txtSearch" type="text"  name="theSearchName">
+				<button type="submit">Search</button>
+				</form><hr>
+				 
+ 
+ <table class="table table-bordered table-striped">
+ <thead class="thead-dark">
+ <tr>
+ <th>ID</th>
+ 
+ <th>Title</th>
+ <th>Author</th>
+ <th>Category</th>
+ <th>Issue Date</th>
+ <th>Return Date</th>
+ <th>Late Return Fine</th>
+ </tr>
+ </thead>
+ <tbody>
+ 
+ <th:block th:each="book : ${listBooks}">
+ <tr>
+<td> [[${book.id}]]</td>
+ 
+<td> [[${book.title}]]</td>
+ <td> [[${book.author}]]</td>
+ <td> [[${book.category}]]</td>
+ <td> [[${book.issueDate}]]</td>
+ <td> [[${book.returnDate}]]</td>
+ <td> [[${book.fine}]]</td>
+  
+ <td>
+ <a th:href="@{'/Book/edit' + ${book.id}}">Edit</a>
+ <br><br>
+  <a th:href="@{'/Book/delete' + ${book.id}}">Delete</a>
+ </td>
+ </tr>
+ 
+ 
+
+ </th:block>
+ </tbody>
+ </table>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+

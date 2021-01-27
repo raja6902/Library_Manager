@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Save book</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container">
+<h3>Book directory</h3>
+<hr>
+<form action="#" th:action="@{/bookssave}" th:object="${book}" method="post">
+<input type="hidden" th:field="*{id}" />
+<input type="text" th:field="*{title}" class="form-control mb-4 col-4" placeholder="Title">
+<input type="text" th:field="*{author}" class="form-control mb-4 col-4" placeholder="Author">
+<input type="text" th:field="*{category}" class="form-control mb-4 col-4" placeholder="Category">
+ 
+
+<button type="submit" class="btn btn-info col-2">Save</button>
+
+
+</form>
+<hr>
+<a th:href="@{/books}">Back to Book List</a>
+</div>
+</body>
+</html>
